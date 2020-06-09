@@ -2,21 +2,54 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>WebAPI-ImageData</title>
+		<title>Image2CSV YUUKIToriyama</title>
 		<script type="text/javascript" src="main.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
 		<style type="text/css">
+			body {
+				padding: 10px 100px 10px 100px;
+				background: azure;
+				font-family: "M PLUS Rounded 1c";
+			}
+			header {
+				padding-bottom: 20px;
+			}
+			main {
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+			#image_area {
+				border: 20px white solid;
+				background: white;
+				text-align: center;
+				margin-top: 10px;
+			}
 			canvas {
 				width: 100%;
+			}
+			footer {
+				text-align: center;
+				padding-top: 10px;
 			}
 		</style>
 	</head>
 	<body>
+		<header>
+			<h1>Image2CSV</h1>
+			<p>jpegやpng画像のピクセルデータをCSV形式に変換するWebツールです</p>
+		</header>
 
-		<div id="image_area"></div>
-
-		<input type="file" onchange="loadImage(this)">
-		<input type="button" value="削除" onClick="clearImage()">
-		<input type="button" value="CSVダウンロード" id="downloadCSV" onClick="getPixelCSV()" disabled>
+		<main>
+			<input type="file" id="loadImage" onchange="loadImage(this)">
+			<input type="button" value="削除" onClick="clearImage()">
+			<input type="button" value="CSVダウンロード" id="downloadCSV" onClick="getPixelCSV()" disabled="">
+			<div id="image_area">
+				<p>写真を選択して下さい</p>
+			</div>
+		</main>
+		<footer>
+			<small>&copy;2020 YUUKIToriyama All rights reserved.</small>
+		</footer>
 
 	</body>
 </html>
