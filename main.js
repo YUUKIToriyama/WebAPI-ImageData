@@ -33,3 +33,24 @@ const clearImage = () => {
 		image_area.removeChild(image_area.firstChild);
 	}
 }
+
+const loadPixelArray = () => {
+	let canvas = document.querySelector("canvas");
+	let width = canvas.width;
+	let context = canvas.getContext("2d");
+	let pixelArray = context.getImageData(0, 0, canvas.width, canvas.height);
+	let d = pixelArray.data;
+	// ピクセルごとにRGBA値をまとめる
+	let tmp = [];
+	for (let i = 0; i < d.length; i = i + 4) {
+		tmp.push(d.slice(i, i + 4));
+	}
+	// ピクセルを行ごとにまとめる
+	let data = [];
+	for (let i = 0; i < tmp.length; i = i + width) {
+		data.push(tmp.slice(i, i + width));
+	}
+	return data;
+}
+
+
