@@ -1,5 +1,9 @@
 /* main.js */
 
+window.onload = () => {
+	var downloadCSV = document.getElementById("downloadCSV");
+}
+
 const loadImage = (input) => {
 	// 描画領域の初期化
 	clearImage();
@@ -25,6 +29,7 @@ const loadImage = (input) => {
 			document.getElementById("image_area").appendChild(cv);
 		}
 	}
+	downloadCSV.disabled = false;
 }
 
 const clearImage = () => {
@@ -32,9 +37,10 @@ const clearImage = () => {
 	while (image_area.firstChild) {
 		image_area.removeChild(image_area.firstChild);
 	}
+	downloadCSV.disabled = true;
 }
 
-const loadPixelArray = () => {
+const getPixelCSV = () => {
 	let canvas = document.querySelector("canvas");
 	let width = canvas.width;
 	let context = canvas.getContext("2d");
@@ -43,14 +49,19 @@ const loadPixelArray = () => {
 	// ピクセルごとにRGBA値をまとめる
 	let tmp = [];
 	for (let i = 0; i < d.length; i = i + 4) {
-		tmp.push(d.slice(i, i + 4));
+		tmp.push(d.slice(i, i + 4).join(" "));
 	}
 	// ピクセルを行ごとにまとめる
 	let data = [];
 	for (let i = 0; i < tmp.length; i = i + width) {
-		data.push(tmp.slice(i, i + width));
+		data.push(tmp.slice(i, i + width).join(","));
 	}
-	return data;
+	// CSVとして書き出す
+	let csvData = "data:text/csv;charset=UTF-8," + data.join("\n");
+	let encodedURI = encodeURI(csvData);
+	let link = document.createElement("a");
+	link.href = encodedURI;
+	link.download = "photo.csv";
+	link.click();
 }
-
 
