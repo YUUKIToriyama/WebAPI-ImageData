@@ -65,3 +65,7 @@ const getPixelCSV = () => {
 	link.click();
 }
 
+const convertImageToBase64 = () => {
+	let canvas = document.querySelector("canvas");
+	return canvas.toDataURL("image/png");
+}
