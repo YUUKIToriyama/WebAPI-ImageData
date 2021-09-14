@@ -1,8 +1,9 @@
 /* main.js */
 
-window.onload = () => {
-	var downloadCSV = document.getElementById("downloadCSV");
-}
+const downloadCSV = document.getElementById("downloadCSV");
+downloadCSV.addEventListener("click", () => {
+	getPixelCSV();
+})
 
 const loadImage = (input) => {
 	// 描画領域の初期化

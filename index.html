@@ -1,59 +1,70 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Image2CSV YUUKIToriyama</title>
-		<script type="text/javascript" src="main.js"></script>
-		<script async defer src="https://buttons.github.io/buttons.js"></script>
-		<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
-		<style type="text/css">
-			body {
-				padding: 10px 100px 10px 100px;
-				background: azure;
-				font-family: "M PLUS Rounded 1c";
-			}
-			header {
-				padding-bottom: 20px;
-			}
-			main {
-				padding-top: 10px;
-				padding-bottom: 10px;
-			}
-			#image_area {
-				border: 20px white solid;
-				background: white;
-				text-align: center;
-				margin-top: 10px;
-			}
-			canvas {
-				width: 100%;
-			}
-			footer {
-				padding-top: 10px;
-			}
-		</style>
-	</head>
-	<body>
-		<header>
-			<h1>Image2CSV</h1>
-			<p>jpegやpng画像のピクセルデータをCSV形式に変換するWebツールです</p>
-		</header>
 
-		<main>
-			<input type="file" id="loadImage" onchange="loadImage(this)">
-			<input type="button" value="削除" onClick="clearImage()">
-			<input type="button" value="CSVダウンロード" id="downloadCSV" onClick="getPixelCSV()" disabled="">
-			<div id="image_area">
-				<p>写真を選択して下さい</p>
-			</div>
-		</main>
-		<footer>
-			<div>
-				<a class="github-button" href="https://github.com/YUUKIToriyama" data-show-count="true" aria-label="Follow @YUUKIToriyama on GitHub">Follow</a>
-				<a class="github-button" href="https://github.com/YUUKIToriyama/Image2CSV" data-icon="octicon-star" data-show-count="true" aria-label="Star YUUKIToriyama/Image2CSV on GitHub">Star</a>
-			</div>
-			<small>&copy;2020 YUUKIToriyama All rights reserved.</small>
-		</footer>
+<head>
+	<meta charset="UTF-8">
+	<title>Image2CSV YUUKIToriyama</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script async defer src="https://buttons.github.io/buttons.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+	<style type="text/css">
+		body {
+			padding: 10px 100px 10px 100px;
+			background: azure;
+			font-family: "M PLUS Rounded 1c";
+		}
 
-	</body>
+		header {
+			padding-bottom: 20px;
+		}
+
+		main {
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+
+		#image_area {
+			border: 20px white solid;
+			background: white;
+			text-align: center;
+			margin-top: 10px;
+		}
+
+		canvas {
+			width: 100%;
+		}
+
+		footer {
+			padding-top: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>Image2CSV</h1>
+		<p>jpegやpng画像のピクセルデータをCSV形式に変換するWebツールです</p>
+	</header>
+
+	<main>
+		<input type="file" id="loadImage" onchange="loadImage(this)">
+		<input type="button" value="削除" onClick="clearImage()">
+		<input type="button" value="CSVダウンロード" id="downloadCSV" disabled="">
+		<div id="image_area">
+			<p>写真を選択して下さい</p>
+		</div>
+	</main>
+	<footer>
+		<div>
+			<a class="github-button" href="https://github.com/YUUKIToriyama" data-show-count="true"
+				aria-label="Follow @YUUKIToriyama on GitHub">Follow</a>
+			<a class="github-button" href="https://github.com/YUUKIToriyama/Image2CSV"
+				data-icon="octicon-star" data-show-count="true"
+				aria-label="Star YUUKIToriyama/Image2CSV on GitHub">Star</a>
+		</div>
+		<small>&copy;2020 YUUKIToriyama All rights reserved.</small>
+	</footer>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+
 </html>
